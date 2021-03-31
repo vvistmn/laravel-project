@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Models\Post::class);
     }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Models\Role::class)->withPivot('created_at');
+    }
 }
